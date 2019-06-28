@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+    <!--设置磁盘存储路径-->
+    <diskStore path="D:\\ehcache\\"/>
+    <cache name="Euser"
+           eternal="false"
+           maxEntriesLocalHeap="20"
+           timeToIdleSeconds="20"
+           timeToLiveSeconds="20"
+           maxElementsInMemory="10000"
+           diskExpiryThreadIntervalSeconds="120"
+           memoryStoreEvictionPolicy="LRU"
+           overflowToDisk="true" >
+    </cache>
+</ehcache>
