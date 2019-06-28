@@ -7,4 +7,8 @@ package com.example.website.service;
 public interface IndexService {
 
     public String delete(String id);
+
+    public String queryRedis(String type);
+
+    public String getKey(String key);
 }

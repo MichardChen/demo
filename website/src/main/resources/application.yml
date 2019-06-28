@@ -6,8 +6,8 @@ spring:
     name: website
   cache:
     ehcache:
-      config: classpath:/ehcache3.xml
-    type: none #原先使用ecache,现在改为none
+      config: classpath:/ehcache.xml
+#    type: none #原先使用ecache,现在改为none
 #  redis:
 #    database: 10
 #    host: 120.27.0.192
@@ -19,7 +19,7 @@ spring:
 #    max-idle: 10
 #    min-idle: 0
 #    timeout: 100000
-  j2cache:
-    config-location: classpath:/j2cache.properties
-    cache-clean-mode: active
-    open-spring-cache: true
+j2cache:
+  config-location: classpath:/j2cache.properties
+  cache-clean-mode: active
+  open-spring-cache: true

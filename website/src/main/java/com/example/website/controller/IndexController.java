@@ -52,4 +52,14 @@ public class IndexController {
     public String j2cache(){
         return j2cacheService.test();
     }
+
+    @RequestMapping("/queryRedis")
+    public String queryRedis(@RequestParam("type")String type){
+        return indexService.queryRedis(type);
+    }
+
+    @RequestMapping("/getKey")
+    public String getKey(@RequestParam("key")String key){
+        return indexService.getKey(key);
+    }
 }
