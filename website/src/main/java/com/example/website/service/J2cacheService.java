@@ -6,5 +6,11 @@ package com.example.website.service;
  */
 public interface J2cacheService {
 
-    public String test();
+    public String addCache(String key,String value);
+
+    public String queryCache(String type);
+
+    public String getKey(String key);
+
+    public String deleteKey(String key);
 }

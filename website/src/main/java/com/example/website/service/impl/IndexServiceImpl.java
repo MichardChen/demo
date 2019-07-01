@@ -60,13 +60,9 @@ public class IndexServiceImpl implements IndexService {
     @Override
     public String getKey(String key) {
         Object v = cacheChannel.get("Euser",key);
-        String l1 = "";
-        if(v == null){
-            ValueOperations<String, String> ops = redisTemplate.opsForValue();
-            l1 = ops.get("j2cache:Euser:"+key);
-        }else{
-            l1 = v.toString();
+        if(v != null){
+            return v.toString();
         }
-        return l1;
+        return "null";
     }
 }

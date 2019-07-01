@@ -7,18 +7,7 @@ spring:
   cache:
     ehcache:
       config: classpath:/ehcache.xml
-#    type: none #原先使用ecache,现在改为none
-#  redis:
-#    database: 10
-#    host: 120.27.0.192
-#    port: 6379
-#    password: 12aa3456
-#   pool:
-#    max-active: 200
-#    max-wait: -1
-#    max-idle: 10
-#    min-idle: 0
-#    timeout: 100000
+
 j2cache:
   config-location: classpath:/j2cache.properties
   cache-clean-mode: active
