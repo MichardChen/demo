@@ -1,0 +1,25 @@
+server:
+  port: 8778
+
+spring:
+  application:
+    name: website
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  cache:
+    ehcache:
+      config: classpath:/ehcache.xml
+  data:
+    mongodb:
+      host: 192.168.44.101
+      port: 27017
+      username: devroot
+      password: ylzWXSB2019
+      database: wxsb_dev
+
+j2cache:
+  config-location: classpath:/j2cache.properties
+  cache-clean-mode: active
+  open-spring-cache: true
