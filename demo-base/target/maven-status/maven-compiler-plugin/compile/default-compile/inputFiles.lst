@@ -1,5 +1,6 @@
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\entity\BaseEntityMongo.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\mapper\BusinessLogRecordMapper.java
+F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\util\HttpClientUtils.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\service\impl\BusinessLogRecordServiceImpl.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\entity\BusinessLogRecord.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\entity\Users.java

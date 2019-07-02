@@ -5,3 +5,4 @@ com\etc\base\entity\BusinessLogRecord.class
 com\etc\base\entity\Users.class
 com\etc\base\service\BusinessLogRecordService.class
 com\etc\base\entity\BaseEntityMongo.class
+com\etc\base\util\HttpClientUtils.class

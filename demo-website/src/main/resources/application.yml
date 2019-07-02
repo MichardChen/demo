@@ -13,11 +13,11 @@ spring:
       config: classpath:/ehcache.xml
   data:
     mongodb:
-      host:
+      host: 192.168.44.101
       port: 27017
-      username:
-      password:
-      database:
+      username: devroot
+      password: ylzWXSB2019
+      database: wxsb_dev
 
 j2cache:
   config-location: classpath:/j2cache.properties
