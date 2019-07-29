@@ -1,6 +1,6 @@
 package com.etc.website.service.impl;
 
-import com.etc.website.service.UserService;
+import com.etc.website.service.WebUserService;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * @date 2019/6/27 0027
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class WebUserServiceImpl implements WebUserService {
 
 
     @Override

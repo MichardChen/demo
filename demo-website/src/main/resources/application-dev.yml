@@ -1,5 +1,5 @@
 server:
-  port: 8778
+  port: 8761
 
 spring:
   application:
@@ -15,9 +15,9 @@ spring:
     mongodb:
       host: 192.168.44.101
       port: 27017
-      username:
-      password:
-      database:
+      username: devroot
+      password: ylzWXSB2019
+      database: wxsb_dev
 
 j2cache:
   config-location: classpath:/j2cache.properties

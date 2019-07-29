@@ -1,3 +1,8 @@
 com\etc\component\jwt\aop\LoginAop.class
+com\etc\component\jwt\controller\AccessAuthController.class
 com\etc\component\jwt\util\JwtUtil.class
+com\etc\component\jwt\enums\AccountType.class
+com\etc\component\jwt\ResultVO.class
 com\etc\component\jwt\annotation\Login.class
+com\etc\component\jwt\service\impl\UserServiceImpl.class
+com\etc\component\jwt\service\UserService.class

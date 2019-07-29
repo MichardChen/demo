@@ -1,0 +1,6 @@
+project:
+ jwt:
+  secret: ac388ikUI
+  expired: 3
+  patternPath: false
+  patternAnno: true

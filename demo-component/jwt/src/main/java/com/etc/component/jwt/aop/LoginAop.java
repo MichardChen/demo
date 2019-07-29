@@ -4,6 +4,7 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.etc.base.enums.JwtResultEnums;
 import com.etc.base.exception.ResultException;
+import com.etc.component.jwt.config.JwtProperties;
 import com.etc.component.jwt.util.JwtUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * 1、注解拦截
  * @author ChenDang
  * @date 2019/7/8 0008
  */
@@ -22,10 +24,8 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class LoginAop {
 
-    /**
-     * 这里先写固定
-     */
-    private String secret = "123456";
+    @Autowired
+    JwtProperties properties;
 
     @Autowired
     HttpServletRequest request;
@@ -41,7 +41,7 @@ public class LoginAop {
 
         // 验证token数据是否正确
         try {
-            JwtUtil.verifyToken(token,secret);
+            JwtUtil.verifyToken(token,properties.getSecret());
         } catch (TokenExpiredException e) {
             throw new ResultException(JwtResultEnums.TOKEN_ERROR);
         } catch (JWTVerificationException e) {
