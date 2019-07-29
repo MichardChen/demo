@@ -1,25 +1,3 @@
-server:
-  port: 8778
-
 spring:
-  application:
-    name: website
-  mvc:
-    view:
-      prefix: /WEB-INF/jsp/
-      suffix: .jsp
-  cache:
-    ehcache:
-      config: classpath:/ehcache.xml
-  data:
-    mongodb:
-      host: 
-      port: 27017
-      username: 
-      password: 
-      database: 
-
-j2cache:
-  config-location: classpath:/j2cache.properties
-  cache-clean-mode: active
-  open-spring-cache: true
+  profiles:
+    active: dev
