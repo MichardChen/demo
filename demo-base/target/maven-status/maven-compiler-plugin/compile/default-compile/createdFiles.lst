@@ -1,5 +1,6 @@
 com\etc\base\enums\StatusEnum.class
 com\etc\base\service\impl\BusinessLogRecordServiceImpl.class
+com\etc\base\util\ResultVoUtil.class
 com\etc\base\enums\DictTypeEnum.class
 com\etc\base\mapper\BusinessLogRecordMapper.class
 com\etc\base\util\HttpServletUtil.class
@@ -12,10 +13,12 @@ com\etc\base\entity\Users.class
 com\etc\base\exception\interfaces\ResultInterface.class
 com\etc\base\entity\User.class
 com\etc\base\constant\AdminConst.class
+com\etc\base\data\URL.class
 com\etc\base\entity\BusinessLogRecord.class
 com\etc\base\entity\BaseEntityMongo.class
 com\etc\base\App.class
 com\etc\base\enums\JwtResultEnums.class
+com\etc\base\vo\ResultVo.class
 com\etc\base\enums\ActionLogEnum.class
 com\etc\base\util\CaptchaUtil.class
 com\etc\base\constant\StatusConst.class

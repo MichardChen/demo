@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     @Override
-    public User findUser(String userName, String password) {
+    public User findUser(String userName) {
 
-        if("admin".equals(userName)&&"admin".equals(password)){
+        if("admin".equals(userName)){
             User user = new User();
             user.setUsername("admin");
             user.setEmail("admin@qq.com");
@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService {
             user.setPhone("18290921212");
             user.setRemark("remark");
             user.setSalt("123456");
+            user.setPassword("0596bfdcc8544eaccce45400689d3864ed7deac3bc6c0fdab0c7af579e284df0");
             return user;
         }else{
             return null;

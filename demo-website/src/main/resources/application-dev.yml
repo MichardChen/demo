@@ -23,3 +23,10 @@ j2cache:
   config-location: classpath:/j2cache.properties
   cache-clean-mode: active
   open-spring-cache: true
+
+project:
+  jwt:
+    secret: ac388ikUI
+    expired: 3
+    patternPath: false
+    patternAnno: true

@@ -1,5 +1,6 @@
 package com.etc.component.jwt.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.etc.base.entity.User;
 import com.etc.base.util.EncryptUtil;
 import com.etc.base.util.ResultVoUtil;
@@ -31,7 +32,7 @@ public class AccessAuthController {
     @RequestMapping("/api/auth")
     public ResultVo login(String userName, String password){
 
-        User user = userService.findUser(userName,password);
+        User user = userService.findUser(userName);
         if(user == null){
             return ResultVoUtil.success("登录失败,用户不存在");
         }else{
@@ -41,7 +42,10 @@ public class AccessAuthController {
             if(encrypt.equals(user.getPassword())){
                 //密码一样
                 String token = JwtUtil.getToken(userName,properties.getSecret(),properties.getExpired());
-                return ResultVoUtil.success("登录成功",token);
+                JSONObject jwt = new JSONObject();
+                jwt.put("token",token);
+                jwt.put("token_type","bearer");
+                return ResultVoUtil.success("登录成功",jwt);
             }
         }
         return ResultVoUtil.success("登录失败,用户不存在");

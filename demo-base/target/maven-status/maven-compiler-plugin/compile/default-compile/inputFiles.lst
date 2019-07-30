@@ -2,6 +2,7 @@ F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\service\impl\Busine
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\util\StatusUtil.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\enums\ActionLogEnum.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\enums\JwtResultEnums.java
+F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\data\URL.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\util\SpringContextUtil.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\exception\advice\ExceptionAdvice.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\App.java
@@ -18,6 +19,8 @@ F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\mapper\BusinessLogR
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\util\HttpClientUtils.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\entity\BusinessLogRecord.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\util\HttpServletUtil.java
+F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\util\ResultVoUtil.java
+F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\vo\ResultVo.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\constant\StatusConst.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\exception\interfaces\ResultInterface.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\util\EncryptUtil.java

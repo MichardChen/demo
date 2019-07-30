@@ -7,5 +7,5 @@ import com.etc.base.entity.User;
  * @date 2019/7/8 0008
  */
 public interface UserService {
-    public User findUser(String userName, String password);
+    public User findUser(String userName);
 }
