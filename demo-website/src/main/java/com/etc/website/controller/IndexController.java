@@ -3,7 +3,6 @@ package com.etc.website.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.etc.base.service.BusinessLogRecordService;
 import com.etc.base.util.HttpClientUtils;
-import com.etc.component.jwt.annotation.Login;
 import com.etc.website.service.J2cacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
@@ -46,7 +45,6 @@ public class IndexController {
         return j2cacheService.deleteKey(key);
     }
 
-    @Login
     @RequestMapping("/count")
     public String count(){
         return businessLogRecordService.count();

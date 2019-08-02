@@ -1,6 +1,7 @@
 com\etc\component\jwt\annotation\IgnorePermissions.class
 com\etc\component\jwt\controller\AccessAuthController.class
 com\etc\component\jwt\ResultVO.class
+META-INF\spring-configuration-metadata.json
 com\etc\component\jwt\aop\LoginAop.class
 com\etc\component\jwt\config\JwtInterceptorConfig.class
 com\etc\component\jwt\util\JwtUtil.class
