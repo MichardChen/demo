@@ -1,0 +1,34 @@
+{
+  "groups": [
+    {
+      "name": "project.jwt",
+      "type": "com.etc.component.jwt.config.JwtProperties",
+      "sourceType": "com.etc.component.jwt.config.JwtProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "project.jwt.expired",
+      "type": "java.lang.Integer",
+      "sourceType": "com.etc.component.jwt.config.JwtProperties"
+    },
+    {
+      "name": "project.jwt.pattern-anno",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.etc.component.jwt.config.JwtProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "project.jwt.pattern-path",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.etc.component.jwt.config.JwtProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "project.jwt.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.etc.component.jwt.config.JwtProperties"
+    }
+  ],
+  "hints": []
+}
