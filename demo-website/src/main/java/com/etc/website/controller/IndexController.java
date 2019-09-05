@@ -3,6 +3,7 @@ package com.etc.website.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.etc.base.service.BusinessLogRecordService;
 import com.etc.base.util.HttpClientUtils;
+import com.etc.component.solr.SolrUtil;
 import com.etc.website.service.J2cacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
@@ -24,6 +25,8 @@ public class IndexController {
     BusinessLogRecordService businessLogRecordService;
     @Autowired
     GridFsTemplate gridFsTemplate;
+    @Autowired
+    SolrUtil solrUtil;
 
     @RequestMapping("/j2cache")
     public String j2cache(@RequestParam("key")String key,@RequestParam("value")String value){
@@ -59,5 +62,10 @@ public class IndexController {
     public String test(){
         JSONObject ret = HttpClientUtils.httpGet("http://localhost:8088/test");
         return ret.toJSONString();
+    }
+
+    @RequestMapping("/solr")
+    public String query() throws Exception{
+        return solrUtil.queryById("100");
     }
 }

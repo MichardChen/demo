@@ -18,6 +18,8 @@ spring:
       username: devroot
       password: ylzWXSB2019
       database: wxsb_dev
+    solr:
+      host: http://localhost:8080/solr
 
 j2cache:
   config-location: classpath:/j2cache.properties
