@@ -4,12 +4,15 @@ import com.alibaba.fastjson.JSONObject;
 import com.etc.base.service.BusinessLogRecordService;
 import com.etc.base.util.HttpClientUtils;
 import com.etc.component.solr.SolrUtil;
+import com.etc.component.solr.entity.News;
 import com.etc.website.service.J2cacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @author ChenDang
@@ -67,5 +70,22 @@ public class IndexController {
     @RequestMapping("/solr")
     public String query() throws Exception{
         return solrUtil.queryById("100");
+    }
+
+    @RequestMapping("/solrUpdate")
+    public String solrUpdate() throws Exception{
+        News news = new News();
+        news.setId("100");
+        news.setTitle("更新测试title");
+        return solrUtil.update(news);
+    }
+
+    @RequestMapping("/solrAll")
+    public String solrAll() throws Exception{
+        List<News> list = solrUtil.queryAllList();
+        for(News news : list){
+            System.out.println(news.getId()+":"+news.getTitle());
+        }
+        return "query all ok";
     }
 }
