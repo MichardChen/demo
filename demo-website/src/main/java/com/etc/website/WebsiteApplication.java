@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 /**
+ * 20190917
  * @ComponentScan要把其他模块也给扫描进来,不然其他模块的@Service,注入到controller里,会提示找不到bean
  */
 @SpringBootApplication
