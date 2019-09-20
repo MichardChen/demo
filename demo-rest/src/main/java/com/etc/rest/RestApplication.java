@@ -6,6 +6,9 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
+/**
+ * 接口模块
+ */
 @SpringBootApplication
 @EnableCaching
 @ComponentScan(basePackages = {"com.etc.*","com.etc.*"})
