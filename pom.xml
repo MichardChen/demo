@@ -19,6 +19,7 @@
     <module>demo-base</module>
     <module>demo-website</module>
     <module>demo-component</module>
+    <module>demo-rest</module>
   </modules>
 
   <name>demo</name>
