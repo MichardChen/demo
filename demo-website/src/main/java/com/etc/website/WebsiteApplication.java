@@ -12,12 +12,13 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
  */
 @SpringBootApplication
 @EnableCaching
-@ComponentScan(basePackages = {"com.etc.*","com.etc.*"})
+@ComponentScan(basePackages = "com.etc.website.*")
 @EnableMongoRepositories(basePackages = {"com.etc.base.mapper"})
 public class WebsiteApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(WebsiteApplication.class, args);
     }
+
 
 }

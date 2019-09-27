@@ -4,6 +4,7 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.etc.base.enums.JwtResultEnums;
 import com.etc.base.exception.ResultException;
+import com.etc.base.service.BusinessLogRecordService;
 import com.etc.component.jwt.config.JwtProperties;
 import com.etc.component.jwt.util.JwtUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -29,6 +30,9 @@ public class LoginAop {
 
     @Autowired
     HttpServletRequest request;
+
+    @Autowired
+    BusinessLogRecordService businessLogRecordService;
 
     @Pointcut("@annotation(com.etc.component.jwt.annotation.Login)")
     public void jwtLogin() {};

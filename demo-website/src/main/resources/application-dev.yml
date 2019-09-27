@@ -13,11 +13,7 @@ spring:
       config: classpath:/ehcache.xml
   data:
     mongodb:
-      host: 192.168.44.101
-      port: 27017
-      username: devroot
-      password: ylzWXSB2019
-      database: wxsb_dev
+      uri: mongodb://root:123456@localhost:27017/test
     solr:
       host: http://localhost:8080/solr
 

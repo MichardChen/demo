@@ -1,18 +1,13 @@
 package com.etc.website.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.etc.base.service.BusinessLogRecordService;
 import com.etc.base.util.HttpClientUtils;
-import com.etc.component.solr.SolrUtil;
-import com.etc.component.solr.entity.News;
 import com.etc.website.service.J2cacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * @author ChenDang
@@ -24,12 +19,12 @@ public class IndexController {
 
     @Autowired
     J2cacheService j2cacheService;
-    @Autowired
-    BusinessLogRecordService businessLogRecordService;
+    /*@Autowired
+    BusinessLogRecordService businessLogRecordService;*/
     @Autowired
     GridFsTemplate gridFsTemplate;
-    @Autowired
-    SolrUtil solrUtil;
+   /* @Autowired
+    SolrUtil solrUtil;*/
 
     @RequestMapping("/j2cache")
     public String j2cache(@RequestParam("key")String key,@RequestParam("value")String value){
@@ -51,7 +46,7 @@ public class IndexController {
         return j2cacheService.deleteKey(key);
     }
 
-    @RequestMapping("/count")
+   /* @RequestMapping("/count")
     public String count(){
         return businessLogRecordService.count();
     }
@@ -59,7 +54,7 @@ public class IndexController {
     @RequestMapping("/saveFile")
     public String saveFile(){
         return businessLogRecordService.count();
-    }
+    }*/
 
     @RequestMapping("/test")
     public String test(){
@@ -67,7 +62,7 @@ public class IndexController {
         return ret.toJSONString();
     }
 
-    @RequestMapping("/solr")
+   /* @RequestMapping("/solr")
     public String query() throws Exception{
         return solrUtil.queryById("100");
     }
@@ -78,14 +73,14 @@ public class IndexController {
         news.setId("100");
         news.setTitle("更新测试title");
         return solrUtil.update(news);
-    }
+    }*/
 
-    @RequestMapping("/solrAll")
+   /* @RequestMapping("/solrAll")
     public String solrAll() throws Exception{
         List<News> list = solrUtil.queryAllList();
         for(News news : list){
             System.out.println(news.getId()+":"+news.getTitle());
         }
         return "query all ok";
-    }
+    }*/
 }

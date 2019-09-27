@@ -4,8 +4,6 @@ import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.util.Date;
-
 /**
  * 记录业务日志实体类
  * @author ChenDang
@@ -91,13 +89,13 @@ public class BusinessLogRecord extends BaseEntityMongo {
      * 开始时间
      */
     @Field("begin_time")
-    private Date beginTime;
+    private String beginTime;
 
     /**
      * 结束时间
      */
     @Field("end_time")
-    private Date endTime;
+    private String endTime;
 
     /**
      * 错误消息
