@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @SpringBootApplication
 @EnableCaching
 @ComponentScan(basePackages = "com.etc.website.*")
-@EnableMongoRepositories(basePackages = {"com.etc.base.mapper"})
+@EnableMongoRepositories(basePackages = {"com.etc.base.mapper"})//启动mongodb
 public class WebsiteApplication {
 
     public static void main(String[] args) {

@@ -14,10 +14,22 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class BusinessLogRecord extends BaseEntityMongo {
 
     /**
+     * _id
+     */
+    @Field("_id")
+    private String _id;
+
+    /**
      * 请求模块
      */
     @Field("module")
     private String module;
+
+    /**
+     * 销量
+     */
+    @Field("sales")
+    private Integer sales;
 
     /**
      * 日志类型
