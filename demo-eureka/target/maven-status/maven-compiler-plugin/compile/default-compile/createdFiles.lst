@@ -1,0 +1,3 @@
+com\etc\eureka\config\WebSecurityConfig.class
+com\etc\eureka\EurekaApplication.class
+com\etc\eureka\config\WebSecurityConfig$SpringSecurityConfig.class

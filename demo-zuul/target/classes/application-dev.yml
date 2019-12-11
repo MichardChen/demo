@@ -1,0 +1,92 @@
+server:
+  port: 8082
+#register-with-eureka是否将自己注册到eureka server上，如果当前应用自己就是server
+#那么设置为false，默认是true。fetch-registry是否从eureka server上获取注册信息，默认true。
+#单节点不需要同步其他eureka server节点的数据
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5 #获取注册列表的周期
+    service-url:
+      defaultZone: http://admin:admin@localhost:8081/eureka/
+  #instance:
+    #hostname: 192.168.2.102 #强制设置ip,默认会获取本机的ip地址
+    #prefer-ip-address: true #使用ip注册到eureka上面
+    #instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
+
+
+spring:
+  application:
+    name: zuul-server
+  #main:
+    #allow-bean-definition-overriding: true #当遇到相同名字的时候,是否允许覆盖注册
+  #设置文件上传的大小参数是servlet不是http，之前一直用http都不生效
+  servlet:
+    multipart:
+      max-file-size: 1000Mb #最大文件大小,默认1M
+      max-request-size: 2500Mb #最大请求大小,默认10M,在大文件上传的时候需要设置这个,在请求的时候会不断地将请求写入磁盘,
+      #如果不设置,在上传的过程中,二进制文件就会放到内存中,Zuul转发的时候,相当于把数据复制2份到内存中,容易撑爆内存
+      enabled: true #是否支持文件上传,默认true
+      file-size-threshold: 10Mb #当上传文件达到10MB的时候进行磁盘写入
+      location: E:/ #上传文件的临时目录
+
+
+#配置zuul路由,配置对应的拦截路径和对应的服务名,url就是用来配置静态路由,这里使用url来配置路由
+#路由配置的几种方式,serviceId、url、正则表达式
+zuul:
+  #ignored-services: "*"#忽略所有服务名称
+  #add-host-header: true
+  #sensitive-headers: Access-Control-Allow-Origin #忽略某些header参数,zuul会进行反向代理,这个属性就是不携带这些参数进行往下代理
+  #ignored-headers: Access-Control-Allow-Credentials,Access-Control-Allow-Origin,Access-Control-Allow-Methods #跟sensitive-headers是一样的
+  routes:
+    rest:
+      path: /restreq/**
+      url: http://localhost:8086/
+      #service-id: rest
+    website:
+      path: /webreq/**
+      url: http://localhost:8080/
+      #service-id: website
+    #localhost-zuul:
+      #path: /**
+      #service-id: zuul-server
+  #ignored-patterns: /**/index/** #忽略符合通配符的路径,如访问http://localhost:8082/webreq/index/orders
+  #就会出现No message available
+  FormBodyWrapperFilter:
+    pre:
+      disable: true #前置过滤器禁用FormBodyWrapperFilter过滤器
+  set-content-length: true #解决文件上传或者下载时,丢失contentLength的问题
+#############################################
+feign:
+  hystrix:
+    enabled: true
+##查看路由表信息,通过访问http://localhost:8082/actuator/routes
+##可以进行查看
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #这里加星号,暴露全部
+  endpoint:
+    routes:
+      enabled: true #默认true,可以省略
+
+##时间超时设置
+##解决springcloud出现SHORTCIRCUIT和GENERAL、TIMEOUT的错误
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 260000 #超时时间根据自己项目需要设置
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+
+#jwt
+project:
+  jwt:
+    secret: ac388ikUI
+    expired: 3
+    patternPath: false
+    patternAnno: true

@@ -1,0 +1,21 @@
+server:
+  port: 8081
+#enable-self-preservation关闭自我保护机制
+eureka:
+  server:
+    enable-self-preservation: false
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://admin:admin@localhost:8081/eureka/
+
+spring:
+  application:
+    name: eureka
+  security:
+    user:
+      name: admin
+      password: admin

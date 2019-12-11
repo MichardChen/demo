@@ -1,0 +1,7 @@
+com\etc\zuul\authorize\AuthorizeFilter.class
+com\etc\zuul\filter\AbstractRouteFilter.class
+com\etc\zuul\filter\RouteFilter.class
+com\etc\zuul\config\ZuulFilterConfig.class
+com\etc\zuul\ZuulApplication.class
+com\etc\zuul\controller\IndexController.class
+com\etc\zuul\config\GateWayCorsConfig.class
