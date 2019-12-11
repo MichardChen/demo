@@ -22,6 +22,7 @@ com\etc\base\enums\JwtResultEnums.class
 com\etc\base\vo\ResultVo.class
 com\etc\base\enums\ActionLogEnum.class
 com\etc\base\util\CaptchaUtil.class
+com\etc\base\enums\CodeEnum.class
 com\etc\base\constant\StatusConst.class
 com\etc\base\util\EncryptUtil.class
 com\etc\base\util\ToolUtil.class

@@ -18,6 +18,11 @@ public class WebController {
         return "index";
     }
 
+    @RequestMapping(value = "/file")
+    public String file(){
+        return "file";
+    }
+
     @Login
     @GetMapping(value = "/jwt")
     public String jwt(){

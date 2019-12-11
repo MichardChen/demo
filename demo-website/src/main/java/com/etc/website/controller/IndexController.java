@@ -3,19 +3,32 @@ package com.etc.website.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.etc.base.util.HttpClientUtils;
 import com.etc.website.service.J2cacheService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author ChenDang
  * @date 2019/6/27 0027
  */
+@Api(value = "index接口")
 @RestController
 @RequestMapping("/index")
 public class IndexController {
+
+    @Autowired
+    private LoadBalancerClient loadBalancerClient;
+
+    @GetMapping("/index")
+    public String index(){
+        return "index";
+    }
 
     @Autowired
     J2cacheService j2cacheService;
@@ -26,22 +39,33 @@ public class IndexController {
    /* @Autowired
     SolrUtil solrUtil;*/
 
-    @RequestMapping("/j2cache")
+    /**
+     * 使用@PostMapping和@GetMapping可以禁用tomcat不安全的请求方法，
+     * 但是使用@RequestMapping则不能禁用，所以需要配置下bean
+     * @param key
+     * @param value
+     * @return
+     */
+   @ApiOperation("j2cache存储")
+   @ApiImplicitParams({
+   @ApiImplicitParam(name = "key",value = "存储key", paramType="query",required = true,dataType = "String"),
+    @ApiImplicitParam(name = "value",value = "存储value", paramType="query",required = true,dataType = "String")})
+    @PostMapping("/j2cache")
     public String j2cache(@RequestParam("key")String key,@RequestParam("value")String value){
         return j2cacheService.addCache(key,value);
     }
 
-    @RequestMapping("/queryCache")
+    @PostMapping("/queryCache")
     public String queryRedis(@RequestParam("type")String type){
         return j2cacheService.queryCache(type);
     }
 
-    @RequestMapping("/getKey")
+    @PostMapping("/getKey")
     public String getKey(@RequestParam("key")String key){
         return j2cacheService.getKey(key);
     }
 
-    @RequestMapping("/deleteKey")
+    @PostMapping("/deleteKey")
     public String deleteKey(@RequestParam("key")String key){
         return j2cacheService.deleteKey(key);
     }
@@ -56,7 +80,7 @@ public class IndexController {
         return businessLogRecordService.count();
     }*/
 
-    @RequestMapping("/test")
+    @PostMapping("/test")
     public String test(){
         JSONObject ret = HttpClientUtils.httpGet("http://localhost:8088/test");
         return ret.toJSONString();
@@ -83,4 +107,11 @@ public class IndexController {
         }
         return "query all ok";
     }*/
+
+
+   @GetMapping("/orders")
+   public String orders(){
+       ServiceInstance serviceInstance = this.loadBalancerClient.choose("orders");
+       return serviceInstance.getHost()+":"+serviceInstance.getPort();
+   }
 }

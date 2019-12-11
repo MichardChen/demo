@@ -5,6 +5,7 @@ F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\enums\JwtResultEnum
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\vo\ValueObject.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\data\URL.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\util\SpringContextUtil.java
+F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\enums\CodeEnum.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\exception\advice\ExceptionAdvice.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\App.java
 F:\study_workspace\demo\demo-base\src\main\java\com\etc\base\enums\StatusEnum.java

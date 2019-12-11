@@ -1,6 +1,9 @@
 package com.etc.rest.controller;
 
+import com.etc.rest.service.FeignClientService;
+import com.etc.rest.service.IndexService;
 import com.etc.rest.util.HttpRequestUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,9 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/rest")
 public class RestIndexController {
 
+    @Autowired
+    IndexService indexService;
+    @Autowired
+    FeignClientService feignClientService;
+
     @RequestMapping("/index")
     public String index(){
-        return "index";
+        return indexService.index();
     }
 
     @GetMapping(value = "/test")
@@ -27,5 +35,10 @@ public class RestIndexController {
     @RequestMapping("/ireport")
     public String ireport(){
         return "index";
+    }
+
+    @GetMapping("orderIndex")
+    public String orderIndex(){
+        return feignClientService.index();
     }
 }

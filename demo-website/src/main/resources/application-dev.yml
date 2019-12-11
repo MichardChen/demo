@@ -1,5 +1,5 @@
 server:
-  port: 8761
+  port: 8080
 
 spring:
   application:
@@ -16,6 +16,15 @@ spring:
       uri: mongodb://root:123456@localhost:27017/test
     solr:
       host: http://localhost:8080/solr
+  #这里设置servlet是文件上传的大小参数设置,不是http,之前一直设置http，不生效
+  servlet:
+    multipart:
+      max-file-size: 500Mb #最大文件大小,默认1M
+      max-request-size: 2500Mb #最大请求大小,默认10M,在大文件上传的时候需要设置这个,在请求的时候会不断地将请求写入磁盘,
+      #如果不设置,在上传的过程中,二进制文件就会放到内存中,Zuul转发的时候,相当于把数据复制2份到内存中,容易撑爆内存
+      enabled: true #是否支持文件上传,默认true
+      file-size-threshold: 10Mb #当上传文件达到10MB的时候进行磁盘写入
+      location: E:/ #上传文件的临时目录
 
 j2cache:
   config-location: classpath:/j2cache.properties
@@ -28,3 +37,26 @@ project:
     expired: 3
     patternPath: false
     patternAnno: true
+
+  swagger:
+    is:
+      enable: true
+    auth:
+      server:
+    service:
+      name:
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@localhost:8081/eureka/
+#ribbon的两种使用方式
+#第一种,通过结合eureka使用,结合eureka也是为了从euraka获取服务注册列表,进行负载均衡访问
+#第二种,通过禁用eureka,通过配置文件来使用ribbon
+ribbon:
+  eureka:
+    enabled: false
+orders:
+  ribbon:
+    ReadTimeout: 60000
+    ConnectTimeout: 60000
+    listOfServers: localhost:8083,localhost:8084

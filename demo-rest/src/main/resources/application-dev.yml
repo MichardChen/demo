@@ -1,5 +1,5 @@
 server:
-  port: 8765
+  port: 8086
 
 spring:
   application:
@@ -13,11 +13,21 @@ spring:
       config: classpath:/ehcache.xml
   data:
     mongodb:
-      uri: mongodb://root:123456@localhost:27017
-      database: test
-      authentication-database: test
+      uri: mongodb://root:123456@localhost:27017/test
+      #database: test
+      #authentication-database: test
 
 j2cache:
   config-location: classpath:/j2cache.properties
   cache-clean-mode: active
   open-spring-cache: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@localhost:8081/eureka/
+
+#自定义feign的log日志级别
+logging:
+  level:
+    com.etc.rest.service.FeignClientService: DEBUG
